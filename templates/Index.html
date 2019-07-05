@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+	Corp. Umbrella
+
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+{% for values in lis %}
+<p>{{ values }}</p>
+{% endfor %}
+
+{% endblock %}
