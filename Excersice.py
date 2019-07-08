@@ -16,27 +16,25 @@ class Posts(db.Model):
 
 @app.route("/filePython/<string:project>/<string:user>")
 def userA(project = "Project", user = "Linares"):
-	title = "Function all"
-	lis = ["Inicio", "News", "Contacts"]
+	title = "Welcome!!"
+	lis = []
 	return render_template("Index.html", title=title, lis=lis)
 
-@app.route("/insert/resident") #Interactuar con el template para mostrar datos en html
-def insert_default():
-	#new_post = Posts(titleD = "Resident Evil")
+@app.route("/insert/inquilino") 
+def insert_inquilino():
+	#new_post = Posts(titleD = "Resident sick")
 	#db.session.add(new_post)
 	#db.session.commit()
+	inquilino_Created = "The new inquilino was created"
 
-	return render_template("select.html")
-
-	#return "the resident Evil was created" 
-
-@app.route("/select/default") #Interactuar con el template para mostrar favicon
-def select_default():
+	return render_template("insert_inquilino.html", inquilino = inquilino_Created)
+ 
+@app.route("/select/inquilino") 
+def queryId_inquilino():
 	post = Posts.query.filter_by(id = 4).first()
+	queryR = "The result of the Query is: ", post.titleD
 
-	return f"the result of the Query is: {post.titleD}"
-
-	return render_template("query_select.html")
+	return render_template("findInquilinos.html", queryR = queryR)
 
 if __name__ == "__main__":
 	db.create_all()

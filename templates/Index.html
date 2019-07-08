@@ -9,8 +9,10 @@
 {% block content %}
 
 <h1>{{ title }}</h1>
-{% for values in lis %}
-<p>{{ values }}</p>
-{% endfor %}
+
+<form method = "get" action="{{ url_for('search') }}">
+	<p><input type="submit" name="nickname"></p>
+	<input type="submit" value="Search">
+</form>
 
 {% endblock %}
